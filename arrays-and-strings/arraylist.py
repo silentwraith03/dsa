@@ -17,17 +17,22 @@ class ArrayList:
         #           Copies element to new array
         #        Inserts element at first None position
         if self.storage[-1]==None:
-            for i in range(len(self.storage)):
-                if self.storage[i]==None:
-                    self.storage[i]=data
+            for index in range(len(self.storage)):
+                if self.storage[index]==None:
+                    self.storage[index]=data
                     break
         else:
             self.size = self.size*2
             new_array = [None]*self.size
-            print("Size if arraylist: {}".format(len(self.storage)))
-            for i in range(len(self.storage)):
-                new_array[i]=self.storage[i]
-            new_array[i+1]=data
+            
+            # Copying elements from old storage array to new storage array
+            for index in range(len(self.storage)):
+                new_array[index]=self.storage[index]
+            
+            # Insert the new element
+            new_array[index+1]=data
+            
+            # Updated the storage
             self.storage=new_array            
     
     def show(self):
